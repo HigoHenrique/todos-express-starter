@@ -33,11 +33,11 @@ db.serialize(function() {
     completed INTEGER \
   )");
   
-  // create an initial user (username: alice, password: letmein)
+  // create an initial user (username: higo, password: teste123)
   var salt = crypto.randomBytes(16);
   db.run('INSERT OR IGNORE INTO users (username, hashed_password, salt) VALUES (?, ?, ?)', [
-    'alice',
-    crypto.pbkdf2Sync('letmein', salt, 310000, 32, 'sha256'),
+    'higo',
+    crypto.pbkdf2Sync('teste123', salt, 310000, 32, 'sha256'),
     salt
   ]);
 });
